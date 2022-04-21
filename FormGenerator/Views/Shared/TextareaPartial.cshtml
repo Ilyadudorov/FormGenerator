@@ -1,0 +1,13 @@
+﻿@model FormGenerator.Models.Form.Item
+
+
+<p>
+    <textarea @if (Model.attributes.Name != null) {@:name="@Model.attributes.Name"
+           } @if (Model.attributes.Required == true) { @: required placeholder="Заполните поле"
+           } @if (@Model.attributes.ValidationRules !=null) { @: type=@Model.attributes.ValidationRules[0].Type
+           } @if (Model.attributes.Value !=null) { @: value="@Model.attributes.Value"
+           } @if (Model.attributes.Label !=null) { @: label="@Model.attributes.Label"
+           } @if (Model.attributes.Class !=null) { @: class="@Model.attributes.Class"
+           } @if (Model.attributes.Disabled == true) { @: disable="disable"
+           } size="40"></textarea>
+</p>

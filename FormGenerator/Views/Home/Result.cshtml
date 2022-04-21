@@ -1,1 +1,52 @@
-﻿
+﻿@model FormGenerator.Models.Form
+
+<form method="post" asp-controller="Home" asp-action="Postmessage">
+    @foreach (var item in Model.Items)
+    {
+        if (item.Type == "filler")
+        {
+            @await Html.PartialAsync("FillerPartial", item);
+        }
+
+        else if (item.Type == "text")
+        {
+            @await Html.PartialAsync("TextPartial", item);
+        }
+
+        else if (item.Type == "textarea")
+        {
+            @await Html.PartialAsync("Textarea", item);
+        }
+
+        else if (item.Type == "checkbox")
+        {
+            @await Html.PartialAsync("CheckboxPartial", item);
+        }
+
+        else if (item.Type == "button")
+        {
+            @await Html.PartialAsync("ButtonPartial", item);
+        }
+
+        else if (item.Type == "select")
+        {
+            @await Html.PartialAsync("SelectPartial", item);
+        }
+
+        else if (item.Type == "radio")
+        {
+            @await Html.PartialAsync("RadioPartial", item);
+        }
+        else
+        {
+            <p>Элемент не найден</p>
+        }
+        <input type="hidden" name="Postmessage" value="@Model.Postmessage" />
+    }
+    <input type="submit" value="Отправить"/>
+</form>
+
+
+
+
+

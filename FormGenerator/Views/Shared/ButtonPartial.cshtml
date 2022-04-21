@@ -1,0 +1,12 @@
+﻿@model FormGenerator.Models.Form.Item
+
+
+<p>
+    <button @if (Model.attributes.Class != null )
+    {
+        @:class="@Model.attributes.Class"
+    } @if (Model.attributes.Text != null)
+    {
+        @Html.LabelFor(m => Model.attributes.Text)
+    }></button>
+</p>
